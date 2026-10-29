@@ -675,14 +675,16 @@
           filter: none;
         }
       }
+      
     </style>
-  <style>
+    <style>
 #snd{position:fixed;bottom:18px;left:18px;z-index:9999;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.55);color:#fff;font-size:20px;cursor:pointer;backdrop-filter:blur(6px)}
-</style>
+    </style>
+
 </head>
   <body>
-    <audio id="nasheed" src="nasheed.mp3" loop preload="auto"></audio>
-    <button id="snd" aria-label="تشغيل/إيقاف الصوت">🔊</button>
+<audio id="nasheed" src="nasheed.mp3" loop preload="auto"></audio>
+<button id="snd" aria-label="تشغيل/إيقاف الصوت">🔊</button>
     <div class="grain"></div>
     <div class="spot" id="sp"></div>
     <nav id="nav">
@@ -1042,18 +1044,18 @@ var IMGS = {
   function upd(){b.textContent=a.paused?"🔇":"🔊";}
   function play(){return a.play().then(upd).catch(function(){upd();});}
   b.addEventListener("click",function(e){e.stopPropagation();a.paused?play():a.pause();upd();});
-  // محاولة التشغيل المباشر (غالباً بيمنعها المتصفح)
   a.play().then(upd).catch(function(){
     upd();
-    // إذا انمنع: يشتغل عند أول لمسة/نقرة/ضغطة زر
-    var ev=["pointerdown","touchend","keydown"];
+    var ev=["pointerdown","pointerup","mousedown","click","touchstart","touchend","keydown"];
     function once(e){
       if(e.target===b)return;
+      if(!a.paused)return;
       ev.forEach(function(n){removeEventListener(n,once,true);});
       play();
     }
     ev.forEach(function(n){addEventListener(n,once,true);});
   });
+  a.addEventListener("error",function(){b.textContent="⚠️";b.title="ملف nasheed.mp3 غير موجود";console.error("nasheed.mp3 not found / cannot load");});
   a.addEventListener("pause",upd);a.addEventListener("play",upd);
 })();
 </script>
