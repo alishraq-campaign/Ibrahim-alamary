@@ -680,11 +680,39 @@
     <style>
 #snd{position:fixed;bottom:18px;left:18px;z-index:9999;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.55);color:#fff;font-size:20px;cursor:pointer;backdrop-filter:blur(6px)}
     </style>
-
+<style>
+#welcome{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(9,9,10,.55);-webkit-backdrop-filter:blur(14px) saturate(120%);backdrop-filter:blur(14px) saturate(120%);transition:opacity .7s ease,visibility .7s}
+#welcome.out{opacity:0;visibility:hidden}
+#welcome .card{position:relative;width:min(420px,100%);text-align:center;padding:38px 26px 30px;border-radius:22px;background:linear-gradient(160deg,#1c1d20f2,#09090af2);border:1px solid #d6ac5266;box-shadow:0 30px 80px #000a,0 0 60px #d6ac5222 inset;animation:wIn .9s cubic-bezier(.2,.8,.2,1) both}
+#welcome .card::before{content:"";position:absolute;inset:8px;border-radius:16px;border:1px solid #d6ac5233;pointer-events:none}
+#welcome .star{color:#d6ac52;font-size:22px;letter-spacing:10px;margin-bottom:6px}
+#welcome .sm{color:#8b8d93;font-size:.8rem;letter-spacing:.35em;margin-bottom:4px}
+#welcome h2{font-family:"Reem Kufi",Cairo,sans-serif;font-size:2.1rem;line-height:1.3;color:#ececec;margin:0 0 4px}
+#welcome h2 span{color:#d6ac52}
+#welcome p{color:#c9c9cc;font-size:1rem;margin:10px 0 24px}
+#welcome button{font-family:"Reem Kufi",Cairo,sans-serif;font-size:1.15rem;font-weight:700;color:#09090a;background:linear-gradient(135deg,#e9c673,#d6ac52 55%,#b88f3a);border:0;border-radius:999px;padding:13px 38px;cursor:pointer;box-shadow:0 8px 28px #d6ac5255;transition:transform .2s,box-shadow .2s;animation:wPulse 2.4s ease-in-out infinite}
+#welcome button:hover{transform:translateY(-2px);box-shadow:0 12px 34px #d6ac5288}
+#welcome .hint{display:block;margin-top:14px;font-size:.75rem;color:#8b8d93}
+@keyframes wIn{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes wPulse{0%,100%{box-shadow:0 8px 28px #d6ac5255}50%{box-shadow:0 8px 40px #d6ac5299}}
+body.lock{overflow:hidden}
+</style>
 </head>
-  <body>
+<body class="lock">
 <audio id="nasheed" src="nasheed.mp3" loop preload="auto"></audio>
 <button id="snd" aria-label="تشغيل/إيقاف الصوت">🔊</button>
+    
+    <div id="welcome" role="dialog" aria-modal="true" aria-label="ترحيب">
+      <div class="card">
+        <div class="star">✦ ✦ ✦</div>
+        <div class="sm">UMRAH · 2026</div>
+        <h2>أهلاً بك أيها <span>المعتمر</span></h2>
+        <h2 style="font-size:1.5rem">في حملة الإشراق</h2>
+        <p>رحلة إيمانية إلى مكة والمدينة<br />ننتظرك في 21 تشرين الثاني</p>
+        <button id="enter" type="button">اضغط للتفاصيل</button>
+        <span class="hint">🔊 سيُشغَّل نشيد ترحيبي</span>
+      </div>
+    </div>
     <div class="grain"></div>
     <div class="spot" id="sp"></div>
     <nav id="nav">
@@ -1038,25 +1066,27 @@ var IMGS = {
       });
     </script>
   <script>
+<script>
 (function(){
-  var a=document.getElementById("nasheed"),b=document.getElementById("snd");
-  a.volume=0.5;
+  var a=document.getElementById("nasheed"),b=document.getElementById("snd"),
+      w=document.getElementById("welcome"),e=document.getElementById("enter");
+  a.volume=0;
   function upd(){b.textContent=a.paused?"🔇":"🔊";}
-  function play(){return a.play().then(upd).catch(function(){upd();});}
-  b.addEventListener("click",function(e){e.stopPropagation();a.paused?play():a.pause();upd();});
-  a.play().then(upd).catch(function(){
-    upd();
-    var ev=["pointerdown","pointerup","mousedown","click","touchstart","touchend","keydown"];
-    function once(e){
-      if(e.target===b)return;
-      if(!a.paused)return;
-      ev.forEach(function(n){removeEventListener(n,once,true);});
-      play();
-    }
-    ev.forEach(function(n){addEventListener(n,once,true);});
+  function fade(){var v=0,t=setInterval(function(){v+=0.05;a.volume=Math.min(v,0.5);if(v>=0.5)clearInterval(t);},120);}
+  function play(){var p=a.play();if(p&&p.then)p.then(function(){upd();fade();}).catch(upd);}
+  e.addEventListener("click",function(){
+    play();
+    w.classList.add("out");
+    document.body.classList.remove("lock");
+    setTimeout(function(){w.style.display="none";},800);
   });
-  a.addEventListener("error",function(){b.textContent="⚠️";b.title="ملف nasheed.mp3 غير موجود";console.error("nasheed.mp3 not found / cannot load");});
+  b.addEventListener("click",function(){
+    if(a.paused){a.volume=0.5;play();}else{a.pause();}
+    upd();
+  });
+  a.addEventListener("error",function(){b.textContent="⚠️";b.title="ملف nasheed.mp3 غير موجود";});
   a.addEventListener("pause",upd);a.addEventListener("play",upd);
+  upd();
 })();
 </script>
   </body>
