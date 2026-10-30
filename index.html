@@ -13,12 +13,12 @@
     <meta property="og:site_name" content="حملة الإشراق" />
     <meta property="og:title" content="حملة الإشراق · عمرة 2026" />
     <meta property="og:description" content="رحلة إيمانية بإشراف المنشد إبراهيم الأمعري · الانطلاق 21 تشرين الثاني · 11 ليلة بين مكة والمدينة · خصومات للعائلات والمجموعات" />
-    <meta property="og:image" content="SITE_URL/og-image.jpg" />
+    <meta property="og:image" content="https://alishraq-campaign.github.io/November-Campaign-2026/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="SITE_URL/" />
+    <meta property="og:url" content="https://alishraq-campaign.github.io/November-Campaign-2026/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>حملة الإشراق </title>
+    <title>حملة الإشراق – الأجواء الذهبية • بوابة السماء</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@500;700&display=swap"
       rel="stylesheet"
@@ -847,11 +847,53 @@ body.lock{overflow:hidden}
 .qb .qgo:active{transform:scale(.98)}
 @media(prefers-reduced-motion:reduce){#prog i,.hero h1 .ol,.qb::before{animation:none}}
 </style>
+<style>
+/* ===== مشغّل النشيد ===== */
+#player{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9997;display:flex;align-items:center;gap:12px;
+  padding:8px 16px 8px 10px;min-width:0;max-width:calc(100vw - 100px);
+  background:linear-gradient(160deg,#1c1d20ee,#09090aee);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border:1px solid #d6ac5244;box-shadow:0 10px 40px #000a;overflow:clip;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+  opacity:0;transform:translateY(30px);pointer-events:none;transition:opacity .8s .3s,transform .8s .3s cubic-bezier(.2,.8,.2,1),border-color .5s}
+#player.show{opacity:1;transform:none;pointer-events:auto}
+#player.playing{border-color:#d6ac5299}
+#player .pb{all:unset;box-sizing:border-box;flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:#09090a;
+  background:linear-gradient(135deg,#e9c673,#d6ac52 55%,#b88f3a);box-shadow:0 4px 16px #d6ac5255;transition:transform .2s,box-shadow .3s}
+#player .pb:hover{transform:scale(1.08)}
+#player .pb:active{transform:scale(.94)}
+#player .pb:focus-visible{outline:2px solid #fff;outline-offset:2px}
+#player.playing .pb{animation:plPulse 2s ease-in-out infinite}
+@keyframes plPulse{0%,100%{box-shadow:0 4px 16px #d6ac5255,0 0 0 0 #d6ac5266}50%{box-shadow:0 4px 16px #d6ac5255,0 0 0 9px #d6ac5200}}
+#player .pb svg{width:18px;height:18px;fill:currentColor}
+#player .pb .i-pause{display:none}
+#player.playing .pb .i-pause{display:block}
+#player.playing .pb .i-play{display:none}
+#player .bars{flex:none;display:flex;align-items:center;gap:3px;height:34px;direction:ltr}
+#player .bars i{display:block;width:3px;height:100%;border-radius:2px;background:linear-gradient(0deg,#8a6a1f,#d6ac52 60%,#f6e2a6);transform-origin:50% 50%;transform:scaleY(.12);will-change:transform;opacity:.9}
+#player .tx{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+#player .tx small{display:flex;align-items:center;gap:6px;font-size:.68rem;letter-spacing:.12em;color:var(--m);white-space:nowrap}
+#player .tx small::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--m);transition:background .4s}
+#player.playing .tx small{color:var(--a)}
+#player.playing .tx small::before{background:var(--a);animation:plDot 1.2s ease-in-out infinite}
+@keyframes plDot{50%{opacity:.25}}
+#player .tx b{font-family:"Reem Kufi",Cairo,sans-serif;font-size:1rem;color:var(--t);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px}
+#player .pg{position:absolute;right:0;left:0;bottom:0;height:2px;background:#ffffff14}
+#player .pg i{display:block;height:100%;width:100%;transform-origin:100% 50%;transform:scaleX(0);background:var(--a)}
+@media(max-width:420px){#player{gap:9px;padding:7px 14px 7px 8px}#player .bars{gap:2px}#player .bars i{width:2.5px}#player .tx b{max-width:105px;font-size:.92rem}}
+@media(prefers-reduced-motion:reduce){#player.playing .pb,#player.playing .tx small::before{animation:none}}
+</style>
 </head>
 <body class="lock">
     <div id="prog"><i></i></div>
 <audio id="nasheed" src="nasheed.mp3" loop preload="auto"></audio>
-<button id="snd" aria-label="تشغيل/إيقاف الصوت">🔊</button>
+<div id="player" role="group" aria-label="مشغّل النشيد">
+      <button id="snd" class="pb" type="button" aria-label="تشغيل / إيقاف النشيد">
+        <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4.2" height="14" rx="1.2"/><rect x="13.8" y="5" width="4.2" height="14" rx="1.2"/></svg>
+      </button>
+      <div class="bars" id="plBars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <span class="pg" aria-hidden="true"><i id="plProg"></i></span>
+    </div>
     
     <div id="welcome" role="dialog" aria-modal="true" aria-label="ترحيب">
       <div class="card">
@@ -861,7 +903,7 @@ body.lock{overflow:hidden}
         <h2 style="font-size:1.5rem">في حملة الإشراق</h2>
         <p>رحلة إيمانية إلى مكة والمدينة<br />ننتظرك في 21 تشرين الثاني</p>
         <button id="enter" type="button">اضغط للتفاصيل</button>
-
+        <span class="hint">🔊 سيُشغَّل نشيد ترحيبي</span>
       </div>
     </div>
     <div class="grain"></div>
@@ -1011,14 +1053,14 @@ body.lock{overflow:hidden}
     <section id="deals">
       <div class="lab rv">05 · العروض</div>
       <h2 class="h rv">كلما اجتمعتم <span class="ol">وفّرتم</span></h2>
-      <p class="dq-lead rv">خصومات خاصة للعائلات ومجموعات الأصدقاء.</p>
+      <p class="dq-lead rv">خصومات خاصة للعائلات والمجموعات، وتتراكم تلقائياً على كل مجموعة تسجّلونها معاً.</p>
 
       <div class="dq-tiers">
-        <div class="dq-t rv" data-p="2"><div class="dq-who">FAMILY OR GROUP</div><div class="dq-n">2</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="20">0</span></div><div class="dq-pp">$10 للشخص</div></div></div>
-        <div class="dq-t rv" data-p="3"><div class="dq-who">FAMILY OR GROUP</div><div class="dq-n">3</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="30">0</span></div><div class="dq-pp">$10 للشخص</div></div></div>
-        <div class="dq-t rv" data-p="5"><div class="dq-who">FAMILY OR GROUP</div><div class="dq-n">5</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="75">0</span></div><div class="dq-pp">$15 للشخص</div></div></div>
-        <div class="dq-t rv" data-p="8"><div class="dq-who">FAMILY OR GROUP</div><div class="dq-n">8</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="100">0</span></div><div class="dq-pp">$12.5 للشخص</div></div></div>
-        <div class="dq-t best rv" data-p="10"><div class="dq-who">FAMILY OR GROUP</div><div class="dq-n">10</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="150">0</span></div><div class="dq-pp">$15 للشخص</div></div></div>
+        <div class="dq-t rv" data-p="2"><div class="dq-who">FAMILY</div><div class="dq-n">2</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="20">0</span></div><div class="dq-pp">$10 للشخص</div></div></div>
+        <div class="dq-t rv" data-p="3"><div class="dq-who">FAMILY</div><div class="dq-n">3</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="30">0</span></div><div class="dq-pp">$10 للشخص</div></div></div>
+        <div class="dq-t rv" data-p="5"><div class="dq-who">GROUP</div><div class="dq-n">5</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="75">0</span></div><div class="dq-pp">$15 للشخص</div></div></div>
+        <div class="dq-t rv" data-p="8"><div class="dq-who">GROUP</div><div class="dq-n">8</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="100">0</span></div><div class="dq-pp">$12.5 للشخص</div></div></div>
+        <div class="dq-t best rv" data-p="10"><div class="dq-who">GROUP</div><div class="dq-n">10</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="150">0</span></div><div class="dq-pp">$15 للشخص</div></div></div>
       </div>
 
       <div class="dq-calc rv">
@@ -1050,7 +1092,7 @@ body.lock{overflow:hidden}
             <div class="dq-cta"><a class="b" id="dqWa" href="https://wa.me/963967556616" target="_blank" rel="noopener">احجز بهذا العرض</a></div>
           </div>
         </div>
-        <div class="dq-note">الأسعار للشخص الواحد · 11 ليلة.</div>
+        <div class="dq-note">الأسعار للشخص الواحد · 11 ليلة. الخصم يُحسب على أفضل توزيع ممكن لعدد المعتمرين.</div>
       </div>
     </section>
 
@@ -1155,7 +1197,7 @@ body.lock{overflow:hidden}
           <button type="button" data-v="600" data-r="ثنائي">ثنائي<small>$600</small></button>
         </div>
         <div class="qsum"><span id="qbTxt">—</span><b id="qbTot">$0</b></div>
-        <button class="qgo" type="submit">احجز الآن <span aria-hidden="true">💬</span></button>
+        <button class="qgo" type="submit">إرسال عبر واتساب <span aria-hidden="true">💬</span></button>
       </form>
       <a class="num rv" href="tel:+963967556616"> +963967556616 </a>
       <div class="rv">
@@ -1297,25 +1339,90 @@ var IMGS = {
     </script>
 <script>
 (function(){
-  var a=document.getElementById("nasheed"),b=document.getElementById("snd"),
-      w=document.getElementById("welcome"),e=document.getElementById("enter");
+  var a=document.getElementById("nasheed"),btn=document.getElementById("snd"),
+      pl=document.getElementById("player"),
+      pg=document.getElementById("plProg"),
+      w=document.getElementById("welcome"),e=document.getElementById("enter"),
+      bars=[].slice.call(document.querySelectorAll("#plBars i")),
+      reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ctx=null,an=null,data=null,levels=bars.map(function(){return .12}),raf=0,t0=0,failed=false;
+
+  /* ===== الواجهة ===== */
+  function ui(){
+    var p=!a.paused;
+    pl.classList.toggle("playing",p);
+    btn.setAttribute("aria-label",p?"إيقاف النشيد":"تشغيل النشيد");
+    if(p)loop();
+  }
+  function fadeIn(){var v=0,t=setInterval(function(){v+=.05;a.volume=Math.min(v,.5);if(v>=.5)clearInterval(t);},120);}
+
+  /* ===== محلّل الصوت الحقيقي (إذا المتصفح بيسمح) ===== */
+  function setupAnalyser(){
+    if(ctx||failed)return;
+    if(location.protocol==="file:"){failed=true;return;}   // بالملفات المحلية بيكتم الصوت، فبنستعمل حركة بديلة
+    try{
+      var AC=window.AudioContext||window.webkitAudioContext;if(!AC){failed=true;return;}
+      ctx=new AC();an=ctx.createAnalyser();an.fftSize=128;an.smoothingTimeConstant=.78;
+      ctx.createMediaElementSource(a).connect(an);an.connect(ctx.destination);
+      data=new Uint8Array(an.frequencyBinCount);
+    }catch(err){failed=true;ctx=null;an=null;}
+  }
+
+  /* ===== حركة الأعمدة ===== */
+  function frame(now){
+    var playing=!a.paused,n=bars.length,i;
+    if(playing&&an){
+      if(ctx.state==="suspended")ctx.resume();
+      an.getByteFrequencyData(data);
+      for(i=0;i<n;i++){
+        var idx=Math.round(1+Math.pow(i/(n-1),1.6)*38),v=data[idx]/255;
+        levels[i]+=(Math.max(.1,Math.pow(v,1.15)*1.05)-levels[i])*.45;
+      }
+    }else if(playing){                        // حركة بديلة بإيقاع ناعم
+      var t=(now-t0)/1000;
+      for(i=0;i<n;i++){
+        var v2=.42+.3*Math.sin(t*(2.2+i*.37)+i*1.7)+.18*Math.sin(t*5.1+i*.9);
+        levels[i]+=(Math.max(.1,Math.min(1,v2))-levels[i])*.18;
+      }
+    }else{
+      for(i=0;i<n;i++)levels[i]+=(.12-levels[i])*.12;
+    }
+    for(i=0;i<n;i++)bars[i].style.transform="scaleY("+levels[i].toFixed(3)+")";
+    if(playing||levels.some(function(x){return x>.125}))raf=requestAnimationFrame(frame);else raf=0;
+  }
+  function loop(){if(!raf&&!reduce){t0=performance.now();raf=requestAnimationFrame(frame);}}
+  if(reduce)bars.forEach(function(b){b.style.transform="scaleY(.5)"});
+
+  /* ===== التشغيل ===== */
+  function play(){
+    setupAnalyser();
+    var p;try{p=a.play();}catch(x){}
+    if(p&&p.then)p.then(function(){if(a.volume<.5&&a.currentTime<1)fadeIn();ui();}).catch(ui);
+  }
+  btn.addEventListener("click",function(){if(a.paused){a.volume=Math.max(a.volume,.5);play();}else a.pause();});
+  a.addEventListener("play",ui);a.addEventListener("pause",ui);
+  a.addEventListener("timeupdate",function(){if(a.duration)pg.style.transform="scaleX("+(a.currentTime/a.duration).toFixed(4)+")";});
+  document.addEventListener("visibilitychange",function(){if(!document.hidden&&!a.paused)loop();});
+
+  /* ===== قفل الشاشة / الإشعارات ===== */
+  if("mediaSession" in navigator){
+    try{
+      navigator.mediaSession.metadata=new MediaMetadata({title:"حملة الإشراق",artist:"حملة الإشراق"});
+      navigator.mediaSession.setActionHandler("play",play);
+      navigator.mediaSession.setActionHandler("pause",function(){a.pause();});
+    }catch(x){}
+  }
+
+  /* ===== شاشة الترحيب ===== */
   a.volume=0;
-  function upd(){b.textContent=a.paused?"🔇":"🔊";}
-  function fade(){var v=0,t=setInterval(function(){v+=0.05;a.volume=Math.min(v,0.5);if(v>=0.5)clearInterval(t);},120);}
-  function play(){var p=a.play();if(p&&p.then)p.then(function(){upd();fade();}).catch(upd);}
   e.addEventListener("click",function(){
-    play();
     w.classList.add("out");
     document.body.classList.remove("lock");
     setTimeout(function(){w.style.display="none";},800);
+    pl.classList.add("show");
+    play();
   });
-  b.addEventListener("click",function(){
-    if(a.paused){a.volume=0.5;play();}else{a.pause();}
-    upd();
-  });
-  a.addEventListener("error",function(){b.textContent="⚠️";b.title="ملف nasheed.mp3 غير موجود";});
-  a.addEventListener("pause",upd);a.addEventListener("play",upd);
-  upd();
+  ui();
 })();
 </script>
   <script>
