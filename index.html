@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>حملة الإشراق  © </title>
+    <title>حملة الإشراق – الأجواء الذهبية • بوابة السماء</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@500;700&display=swap"
       rel="stylesheet"
@@ -697,6 +697,84 @@
 @keyframes wPulse{0%,100%{box-shadow:0 8px 28px #d6ac5255}50%{box-shadow:0 8px 40px #d6ac5299}}
 body.lock{overflow:hidden}
 </style>
+<style>
+/* ===== عروض العائلات والمجموعات ===== */
+#deals .dq-lead{color:var(--m);max-width:560px;margin:-10px 0 34px;font-size:1.05rem}
+.dq-tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;perspective:1000px}
+@media(min-width:900px){.dq-tiers{grid-template-columns:repeat(5,1fr);gap:16px}}
+.dq-tiers .dq-t:last-child{grid-column:1/-1}
+@media(min-width:900px){.dq-tiers .dq-t:last-child{grid-column:auto}}
+.dq-t{--mx:50%;--my:50%;position:relative;overflow:hidden;background:var(--c1);border:1px solid var(--c3);padding:26px 16px 20px;text-align:center;cursor:default;transform-style:preserve-3d;
+  transition:transform .25s ease-out,border-color .4s,background .4s;
+  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px))}
+.dq-t::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx) var(--my),#d6ac5238,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
+.dq-t:hover{border-color:var(--a);background:var(--c2)}
+.dq-t:hover::before{opacity:1}
+.dq-t .dq-who{font-size:.7rem;letter-spacing:.25em;color:var(--m)}
+.dq-t .dq-n{font-family:"Reem Kufi",Cairo,sans-serif;font-size:4.4rem;line-height:1;font-weight:700;color:transparent;-webkit-text-stroke:1px #ffffff77;margin:4px 0 0;transition:.4s}
+.dq-t:hover .dq-n{-webkit-text-stroke-color:var(--a)}
+.dq-t .dq-u{font-weight:700;margin-bottom:14px}
+.dq-people{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin:0 auto 14px;max-width:110px;min-height:10px}
+.dq-people i{width:8px;height:8px;border-radius:50%;background:var(--c3);transition:background .4s,transform .4s}
+.dq-t.on .dq-people i{background:var(--a)}
+.dq-t.on .dq-people i{animation:dqPop .5s both}
+@keyframes dqPop{0%{transform:scale(0)}70%{transform:scale(1.5)}100%{transform:scale(1)}}
+.dq-t .dq-off{border-top:2px dashed var(--c3);padding-top:12px}
+.dq-t .dq-off small{display:block;color:var(--m);font-size:.75rem}
+.dq-t .dq-amt{font-family:"Reem Kufi",Cairo,sans-serif;font-size:2.6rem;font-weight:900;line-height:1.2;color:var(--a)}
+.dq-t .dq-pp{font-size:.72rem;color:var(--m);margin-top:2px}
+.dq-t.best{background:var(--t);color:var(--k)}
+.dq-t.best .dq-who,.dq-t.best .dq-pp,.dq-t.best .dq-off small{color:#555}
+.dq-t.best .dq-n{-webkit-text-stroke-color:#0008}
+.dq-t.best .dq-off{border-color:#0004}
+.dq-t.best .dq-amt{color:#8a6a1f}
+.dq-t.best .dq-people i{background:#0002}
+.dq-t.best.on .dq-people i{background:#8a6a1f}
+.dq-t.best::after{content:"الأوفر";position:absolute;top:10px;left:10px;font-size:.65rem;font-weight:900;background:var(--k);color:var(--a);padding:1px 10px;letter-spacing:.1em}
+.dq-t.best:hover{background:#fff}
+.dq-t.best::before{background:radial-gradient(260px circle at var(--mx) var(--my),#d6ac5266,transparent 60%)}
+
+/* الحاسبة */
+.dq-calc{margin-top:46px;position:relative;background:linear-gradient(160deg,var(--c1),var(--k));border:1px solid var(--c3);padding:30px 22px;overflow:hidden;
+  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));overflow:clip}
+.dq-calc::before{content:"";position:absolute;width:420px;height:420px;left:-120px;top:-180px;background:radial-gradient(circle,#d6ac5222,transparent 65%);pointer-events:none;animation:dqFloat 9s ease-in-out infinite}
+@keyframes dqFloat{50%{transform:translate(60px,40px)}}
+.dq-calc h3{font-size:1.6rem;margin-bottom:4px}
+.dq-calc .dq-sub{color:var(--m);font-size:.9rem;margin-bottom:22px}
+.dq-grid{display:grid;gap:26px;grid-template-columns:minmax(0,1fr)}.dq-grid>div{min-width:0}.dq-calc{max-width:100%}
+@media(min-width:860px){.dq-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px}}
+.dq-lbl{font-size:.75rem;letter-spacing:.2em;color:var(--m);margin-bottom:8px;display:block}
+.dq-step{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.dq-step button{width:46px;height:46px;border:1px solid var(--c3);background:var(--c2);color:var(--t);font-size:1.5rem;cursor:pointer;transition:.25s;font-family:inherit}
+.dq-step button:hover{border-color:var(--a);color:var(--a);transform:scale(1.08)}
+.dq-step button:active{transform:scale(.92)}
+.dq-count{font-family:"Reem Kufi",Cairo,sans-serif;font-size:3.6rem;font-weight:700;min-width:84px;text-align:center;line-height:1}
+.dq-count small{font-size:1rem;color:var(--m);display:block;font-family:Cairo}
+#dqRange{width:100%;accent-color:var(--a);margin:6px 0 20px;height:26px;cursor:pointer}
+.dq-rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dq-rooms button{padding:10px 4px;background:transparent;border:1px solid var(--c3);color:var(--t);cursor:pointer;font-family:inherit;font-weight:700;transition:.3s;position:relative}
+.dq-rooms button small{display:block;color:var(--m);font-weight:400;font-size:.75rem}
+.dq-rooms button:hover{border-color:var(--m)}
+.dq-rooms button.on{background:var(--a);color:var(--k);border-color:var(--a)}
+.dq-rooms button.on small{color:#3a2d0c}
+.dq-dots{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px;min-height:22px}
+.dq-dots i{width:16px;height:16px;border-radius:50%;border:1px solid var(--c3);background:transparent;transition:background .35s,border-color .35s,transform .35s}
+.dq-dots i.a{border-color:var(--m);background:var(--m)}
+.dq-dots i.g{background:var(--a);border-color:var(--a);box-shadow:0 0 12px #d6ac5288}
+.dq-out{display:flex;flex-direction:column;justify-content:center;gap:0}
+.dq-line{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px dashed var(--c3);color:var(--m)}
+.dq-line b{direction:ltr;unicode-bidi:isolate;color:var(--t);font-family:"Reem Kufi",Cairo,sans-serif;font-size:1.4rem;font-variant-numeric:tabular-nums}
+.dq-line.save b{color:var(--a)}
+.dq-line.tot{border-bottom:0;padding-top:16px;color:var(--t);font-weight:700}
+.dq-line.tot b{font-size:3.2rem;line-height:1;color:var(--t)}
+.dq-chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px;min-height:30px}
+.dq-chips span{font-size:.8rem;padding:3px 12px;border:1px solid var(--a);color:var(--a);animation:dqPop .5s both}
+.dq-chips em{font-style:normal;color:var(--m);font-size:.8rem;align-self:center}
+.dq-cta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.dq-sp{position:fixed;width:7px;height:7px;background:var(--a);pointer-events:none;z-index:10001;transform:rotate(45deg);box-shadow:0 0 8px var(--a)}
+.dq-note{margin-top:14px;color:var(--m);font-size:.78rem}
+@media(prefers-reduced-motion:reduce){.dq-calc::before,.dq-t.on .dq-people i,.dq-chips span{animation:none}}
+</style>
 </head>
 <body class="lock">
 <audio id="nasheed" src="nasheed.mp3" loop preload="auto"></audio>
@@ -707,10 +785,10 @@ body.lock{overflow:hidden}
         <div class="star">✦ ✦ ✦</div>
         <div class="sm">UMRAH · 2026</div>
         <h2>أهلاً بك أيها <span>المعتمر</span></h2>
-        <h2 style="font-size:1.5rem"> في <span>حملة الإشراق </span></h2>
+        <h2 style="font-size:1.5rem">في حملة الإشراق</h2>
         <p>رحلة إيمانية إلى مكة والمدينة<br />ننتظرك في 21 تشرين الثاني</p>
         <button id="enter" type="button">اضغط للتفاصيل</button>
-        
+        <span class="hint">🔊 سيُشغَّل نشيد ترحيبي</span>
       </div>
     </div>
     <div class="grain"></div>
@@ -857,8 +935,54 @@ body.lock{overflow:hidden}
       </div>
     </section>
 
+    <section id="deals">
+      <div class="lab rv">05 · العروض</div>
+      <h2 class="h rv">كلما اجتمعتم <span class="ol">وفّرتم</span></h2>
+      <p class="dq-lead rv">خصومات خاصة للعائلات والمجموعات، وتتراكم تلقائياً على كل مجموعة تسجّلونها معاً.</p>
+
+      <div class="dq-tiers">
+        <div class="dq-t rv" data-p="2"><div class="dq-who">FAMILY</div><div class="dq-n">2</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="20">0</span></div><div class="dq-pp">$10 للشخص</div></div></div>
+        <div class="dq-t rv" data-p="3"><div class="dq-who">FAMILY</div><div class="dq-n">3</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="30">0</span></div><div class="dq-pp">$10 للشخص</div></div></div>
+        <div class="dq-t rv" data-p="5"><div class="dq-who">GROUP</div><div class="dq-n">5</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="75">0</span></div><div class="dq-pp">$15 للشخص</div></div></div>
+        <div class="dq-t rv" data-p="8"><div class="dq-who">GROUP</div><div class="dq-n">8</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="100">0</span></div><div class="dq-pp">$12.5 للشخص</div></div></div>
+        <div class="dq-t best rv" data-p="10"><div class="dq-who">GROUP</div><div class="dq-n">10</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="150">0</span></div><div class="dq-pp">$15 للشخص</div></div></div>
+      </div>
+
+      <div class="dq-calc rv">
+        <h3>احسب توفيرك</h3>
+        <div class="dq-sub">اختر عدد المعتمرين ونوع الغرفة، وسنختار لك أفضل توزيع للمجموعات.</div>
+        <div class="dq-grid">
+          <div>
+            <span class="dq-lbl">عدد المعتمرين</span>
+            <div class="dq-step">
+              <button type="button" id="dqMinus" aria-label="أنقص">−</button>
+              <div class="dq-count"><span id="dqN">2</span><small>معتمر</small></div>
+              <button type="button" id="dqPlus" aria-label="زِد">+</button>
+            </div>
+            <input type="range" id="dqRange" min="1" max="30" value="2" aria-label="عدد المعتمرين" />
+            <span class="dq-lbl">نوع الغرفة</span>
+            <div class="dq-rooms" id="dqRooms">
+              <button type="button" data-v="500" data-r="رباعي">رباعي<small>$500</small></button>
+              <button type="button" data-v="550" data-r="ثلاثي">ثلاثي<small>$550</small></button>
+              <button type="button" data-v="600" data-r="ثنائي">ثنائي<small>$600</small></button>
+            </div>
+            <div class="dq-dots" id="dqDots"></div>
+          </div>
+          <div class="dq-out">
+            <div class="dq-line"><span>السعر قبل الخصم</span><b id="dqPre">$0</b></div>
+            <div class="dq-line save"><span>خصم المجموعات</span><b id="dqDisc">−$0</b></div>
+            <div class="dq-chips" id="dqChips"></div>
+            <div class="dq-line"><span>التوفير للشخص</span><b id="dqPP">$0</b></div>
+            <div class="dq-line tot"><span>الإجمالي</span><b id="dqTot">$0</b></div>
+            <div class="dq-cta"><a class="b" id="dqWa" href="https://wa.me/963967556616" target="_blank" rel="noopener">احجز بهذا العرض</a></div>
+          </div>
+        </div>
+        <div class="dq-note">الأسعار للشخص الواحد · 11 ليلة. الخصم يُحسب على أفضل توزيع ممكن لعدد المعتمرين.</div>
+      </div>
+    </section>
+
     <section>
-      <div class="lab rv">05 · يشمل السعر</div>
+      <div class="lab rv">06 · يشمل السعر</div>
       <h2 class="h rv">كل شيء <span class="ol">محسوب</span></h2>
       <div class="ls">
         <div class="li rv">
@@ -914,7 +1038,7 @@ body.lock{overflow:hidden}
     </section>
 
     <section class="bk" id="book">
-      <div class="lab rv" style="justify-content: center">06 · الحجز</div>
+      <div class="lab rv" style="justify-content: center">07 · الحجز</div>
       <h2 class="h rv">المقاعد <span class="ol">محدودة</span></h2>
       <div class="dl rv">
         <span>آخر موعد للتسجيل: 15 تشرين الثاني</span
@@ -1065,8 +1189,7 @@ var IMGS = {
         }, 4200);
       });
     </script>
-  <script>
-
+<script>
 (function(){
   var a=document.getElementById("nasheed"),b=document.getElementById("snd"),
       w=document.getElementById("welcome"),e=document.getElementById("enter");
@@ -1089,5 +1212,124 @@ var IMGS = {
   upd();
 })();
 </script>
+  <script>
+(function(){
+  var TIERS=[[2,20],[3,30],[5,75],[8,100],[10,150]];
+  var $=function(i){return document.getElementById(i)};
+  var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* أفضل توزيع للمجموعات (برمجة ديناميكية) */
+  function best(n){
+    var d=[0],pick=[null],i,j;
+    for(i=1;i<=n;i++){
+      d[i]=d[i-1];pick[i]=null;               // معتمر بدون خصم
+      for(j=0;j<TIERS.length;j++){
+        var s=TIERS[j][0],v=TIERS[j][1];
+        if(i>=s&&d[i-s]+v>d[i]){d[i]=d[i-s]+v;pick[i]=s;}
+      }
+    }
+    var groups=[],r=n;
+    while(r>0){
+      if(pick[r]===null){r--;continue;}
+      groups.push(pick[r]);r-=pick[r];
+    }
+    groups.sort(function(a,b){return b-a});
+    return {disc:d[n],groups:groups,left:n-groups.reduce(function(a,b){return a+b},0)};
+  }
+
+  /* ===== بطاقات الدرجات: نقاط + توهج + ميلان ثلاثي الأبعاد ===== */
+  document.querySelectorAll(".dq-t").forEach(function(c){
+    var p=+c.dataset.p,box=c.querySelector(".dq-people");
+    for(var i=0;i<p;i++){var d=document.createElement("i");d.style.animationDelay=(i*70)+"ms";box.appendChild(d);}
+    var io2=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){setTimeout(function(){c.classList.add("on")},350);io2.disconnect();}
+    })},{threshold:.3});io2.observe(c);
+    if(reduce||!matchMedia("(hover:hover)").matches)return;
+    c.addEventListener("pointermove",function(e){
+      var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      c.style.setProperty("--mx",x*100+"%");c.style.setProperty("--my",y*100+"%");
+      c.style.transform="rotateY("+((x-.5)*-12)+"deg) rotateX("+((y-.5)*10)+"deg) translateY(-6px)";
+    });
+    c.addEventListener("pointerleave",function(){c.style.transform="";});
+  });
+
+  /* ===== الحاسبة ===== */
+  var n=2,price=500,room="رباعي",shown={pre:0,disc:0,pp:0,tot:0},lastDisc=0;
+  var rng=$("dqRange"),dots=$("dqDots");
+
+  function tween(el,from,to,fmt,key){
+    if(reduce){el.textContent=fmt(to);shown[key]=to;return;}
+    var t0=performance.now(),dur=650;
+    (function f(t){
+      var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3),v=from+(to-from)*e;
+      el.textContent=fmt(Math.round(v*10)/10);
+      if(p<1)requestAnimationFrame(f);else shown[key]=to;
+    })(t0);
+  }
+  var money=function(v){return "$"+(Math.round(v*10)/10).toLocaleString("en-US")};
+
+  function burst(){
+    if(reduce)return;
+    var o=$("dqDisc").getBoundingClientRect();
+    for(var i=0;i<16;i++){
+      var s=document.createElement("span");s.className="dq-sp";
+      s.style.left=(o.left+o.width/2)+"px";s.style.top=(o.top+o.height/2)+"px";
+      document.body.appendChild(s);
+      var a=Math.random()*Math.PI*2,dist=50+Math.random()*80;
+      s.animate([{transform:"translate(0,0) rotate(45deg) scale(1)",opacity:1},
+        {transform:"translate("+Math.cos(a)*dist+"px,"+(Math.sin(a)*dist-30)+"px) rotate(225deg) scale(0)",opacity:0}],
+        {duration:800+Math.random()*400,easing:"cubic-bezier(.2,.8,.3,1)"}).onfinish=(function(x){return function(){x.remove()}})(s);
+    }
+  }
+
+  function render(){
+    var r=best(n),pre=n*price,tot=pre-r.disc,pp=n?r.disc/n:0;
+    $("dqN").textContent=n;rng.value=n;
+    tween($("dqPre"),shown.pre,pre,money,"pre");
+    tween($("dqDisc"),shown.disc,r.disc,function(v){return "−"+money(v)},"disc");
+    tween($("dqPP"),shown.pp,pp,money,"pp");
+    tween($("dqTot"),shown.tot,tot,money,"tot");
+    if(r.disc>lastDisc)burst();
+    lastDisc=r.disc;
+
+    /* الشرائح */
+    var ch=$("dqChips");ch.innerHTML="";
+    r.groups.forEach(function(g,i){var s=document.createElement("span");s.textContent="مجموعة "+g;s.style.animationDelay=(i*80)+"ms";ch.appendChild(s);});
+    if(r.left>0&&r.groups.length){var e=document.createElement("em");e.textContent="+ "+r.left+" بدون خصم";ch.appendChild(e);}
+    if(!r.groups.length){var e2=document.createElement("em");e2.textContent="ابدأ من معتمرَين لتحصل على خصم";ch.appendChild(e2);}
+
+    /* النقاط الملونة حسب المجموعات */
+    dots.innerHTML="";var idx=0;
+    var order=r.groups.slice();
+    for(var k=0;k<n;k++){
+      var d=document.createElement("i");
+      d.className=k<(n-r.left)?"g":"a";
+      d.style.transitionDelay=(k*25)+"ms";
+      dots.appendChild(d);
+    }
+    /* واتساب */
+    var msg="السلام عليكم، بدي أحجز عمرة مع حملة الإشراق لـ "+n+" معتمر (غرفة "+room+")"+(r.disc?" وحسب عرض الخصم ($"+r.disc+")":"")+".";
+    $("dqWa").href="https://wa.me/963967556616?text="+encodeURIComponent(msg);
+  }
+
+  $("dqPlus").onclick=function(){if(n<30){n++;render();}};
+  $("dqMinus").onclick=function(){if(n>1){n--;render();}};
+  rng.oninput=function(){n=+rng.value;render();};
+  $("dqRooms").querySelectorAll("button").forEach(function(b){
+    b.onclick=function(){
+      $("dqRooms").querySelectorAll("button").forEach(function(x){x.classList.remove("on")});
+      b.classList.add("on");price=+b.dataset.v;room=b.dataset.r;render();
+    };
+  });
+  $("dqRooms").firstElementChild.classList.add("on");
+
+  /* ابدأ الحاسبة عند ظهورها */
+  var started=false;
+  new IntersectionObserver(function(es,ob){es.forEach(function(e){
+    if(e.isIntersecting&&!started){started=true;render();ob.disconnect();}
+  })},{threshold:.25}).observe(document.querySelector(".dq-calc"));
+})();
+</script>
+
   </body>
 </html>
