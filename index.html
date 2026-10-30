@@ -6,7 +6,19 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>حملة الإشراق</title>
+    <meta name="description" content="حملة الإشراق للعمرة 2026 · بإشراف المنشد إبراهيم الأمعري · الانطلاق 21 تشرين الثاني من دمشق · 11 ليلة بين مكة والمدينة" />
+    <meta name="theme-color" content="#09090a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ar_AR" />
+    <meta property="og:site_name" content="حملة الإشراق" />
+    <meta property="og:title" content="حملة الإشراق · عمرة 2026" />
+    <meta property="og:description" content="رحلة إيمانية بإشراف المنشد إبراهيم الأمعري · الانطلاق 21 تشرين الثاني · 11 ليلة بين مكة والمدينة · خصومات للعائلات والمجموعات" />
+    <meta property="og:image" content="SITE_URL/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="SITE_URL/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>حملة الإشراق – الأجواء الذهبية • بوابة السماء</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@500;700&display=swap"
       rel="stylesheet"
@@ -775,8 +787,69 @@ body.lock{overflow:hidden}
 .dq-note{margin-top:14px;color:var(--m);font-size:.78rem}
 @media(prefers-reduced-motion:reduce){.dq-calc::before,.dq-t.on .dq-people i,.dq-chips span{animation:none}}
 </style>
+<style>
+/* شريط التقدّم الذهبي */
+#prog{position:fixed;top:0;right:0;left:0;height:3px;z-index:9998;pointer-events:none}
+#prog i{display:block;height:100%;width:100%;transform-origin:100% 50%;transform:scaleX(0);background:linear-gradient(90deg,#8a6a1f,#d6ac52,#f6e2a6,#d6ac52);background-size:200% 100%;animation:pgShine 2.2s linear infinite;box-shadow:0 0 12px #d6ac52aa}
+@keyframes pgShine{to{background-position:-200% 0}}
+/* لمعة على الكلمات المفرّغة */
+.hero h1 .ol{background:linear-gradient(110deg,transparent 35%,#d6ac52 50%,transparent 65%) 150% 0/250% 100% no-repeat;-webkit-background-clip:text;background-clip:text;animation:olShine 5s ease-in-out 1.2s infinite}
+@keyframes olShine{0%{background-position:150% 0}60%,100%{background-position:-50% 0}}
+
+/* الأسئلة الشائعة */
+#faq .fq{margin-top:10px;border-top:1px solid var(--c3)}
+.fq-i{border-bottom:1px solid var(--c3);position:relative}
+.fq-i::before{content:"";position:absolute;right:0;top:0;bottom:0;width:2px;background:var(--a);transform:scaleY(0);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.fq-i.open::before{transform:scaleY(1)}
+.fq-q{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:16px;padding:22px 14px;cursor:pointer;font-family:"Reem Kufi",Cairo,sans-serif;font-size:1.25rem;font-weight:700;color:var(--t);transition:color .3s,padding .3s}
+.fq-q:hover,.fq-i.open .fq-q{color:var(--a)}
+.fq-q:focus-visible{outline:1px solid var(--a)}
+.fq-q .no{font-size:.8rem;color:var(--m);letter-spacing:.2em;min-width:28px}
+.fq-q .tx{flex:1}
+.fq-q .pl{position:relative;width:20px;height:20px;flex:none}
+.fq-q .pl::before,.fq-q .pl::after{content:"";position:absolute;left:0;top:50%;width:100%;height:2px;margin-top:-1px;background:currentColor;transition:transform .4s}
+.fq-q .pl::after{transform:rotate(90deg)}
+.fq-i.open .pl::after{transform:rotate(0)}
+.fq-i.open .pl{transform:rotate(180deg);transition:transform .4s}
+.fq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1)}
+.fq-i.open .fq-a{grid-template-rows:1fr}
+.fq-a>div{overflow:hidden}
+.fq-a p{padding:0 58px 24px 14px;color:var(--m);line-height:1.95;opacity:0;transform:translateY(-8px);transition:.5s .1s}
+.fq-i.open .fq-a p{opacity:1;transform:none}
+.fq-more{margin-top:26px;color:var(--m)}
+.fq-more a{color:var(--a);text-decoration:none;border-bottom:1px solid var(--a)}
+
+/* نموذج الحجز السريع */
+.qb{max-width:640px;margin:34px auto 30px;text-align:right;position:relative;background:linear-gradient(160deg,var(--c1),var(--k));border:1px solid var(--c3);padding:28px 22px 24px;overflow:clip;
+  clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px))}
+.qb::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,#d6ac5214 50%,transparent 60%) -150% 0/250% 100% no-repeat;animation:qbSw 6s ease-in-out infinite;pointer-events:none}
+@keyframes qbSw{0%{background-position:150% 0}50%,100%{background-position:-150% 0}}
+.qb h3{font-size:1.6rem;margin-bottom:2px}
+.qb .qs{color:var(--m);font-size:.9rem;margin-bottom:20px}
+.qb label.lb,.qb .lb{display:block;font-size:.75rem;letter-spacing:.2em;color:var(--m);margin:16px 0 8px}
+.qb input[type=text]{width:100%;background:var(--c2);border:1px solid var(--c3);color:var(--t);padding:14px 16px;font:inherit;font-size:1rem;outline:none;transition:.3s}
+.qb input[type=text]:focus{border-color:var(--a);box-shadow:0 0 0 3px #d6ac5222}
+.qb input.bad{border-color:#c0504d;animation:qbShake .4s}
+@keyframes qbShake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.qb .qn{display:flex;align-items:center;gap:14px}
+.qb .qn button{width:44px;height:44px;border:1px solid var(--c3);background:var(--c2);color:var(--t);font-size:1.4rem;cursor:pointer;transition:.25s;font-family:inherit}
+.qb .qn button:hover{border-color:var(--a);color:var(--a)}
+.qb .qn output{font-family:"Reem Kufi",Cairo,sans-serif;font-size:2.2rem;font-weight:700;min-width:50px;text-align:center}
+.qb .qr{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.qb .qr button{padding:10px 4px;background:transparent;border:1px solid var(--c3);color:var(--t);cursor:pointer;font-family:inherit;font-weight:700;transition:.3s}
+.qb .qr button small{display:block;color:var(--m);font-weight:400;font-size:.75rem}
+.qb .qr button.on{background:var(--a);color:var(--k);border-color:var(--a)}
+.qb .qr button.on small{color:#3a2d0c}
+.qb .qsum{margin-top:18px;padding:12px 14px;border:1px dashed var(--c3);color:var(--m);font-size:.92rem;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.qb .qsum b{color:var(--a);font-family:"Reem Kufi",Cairo,sans-serif;font-size:1.4rem;direction:ltr;unicode-bidi:isolate}
+.qb .qgo{margin-top:16px;width:100%;border:0;cursor:pointer;font-family:"Reem Kufi",Cairo,sans-serif;font-size:1.2rem;font-weight:700;color:var(--k);background:linear-gradient(135deg,#e9c673,#d6ac52 55%,#b88f3a);padding:15px;transition:.3s;display:flex;align-items:center;justify-content:center;gap:10px;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+.qb .qgo:hover{filter:brightness(1.1);letter-spacing:1px}
+.qb .qgo:active{transform:scale(.98)}
+@media(prefers-reduced-motion:reduce){#prog i,.hero h1 .ol,.qb::before{animation:none}}
+</style>
 </head>
 <body class="lock">
+    <div id="prog"><i></i></div>
 <audio id="nasheed" src="nasheed.mp3" loop preload="auto"></audio>
 <button id="snd" aria-label="تشغيل/إيقاف الصوت">🔊</button>
     
@@ -788,7 +861,7 @@ body.lock{overflow:hidden}
         <h2 style="font-size:1.5rem">في حملة الإشراق</h2>
         <p>رحلة إيمانية إلى مكة والمدينة<br />ننتظرك في 21 تشرين الثاني</p>
         <button id="enter" type="button">اضغط للتفاصيل</button>
-        
+        <span class="hint">🔊 سيُشغَّل نشيد ترحيبي</span>
       </div>
     </div>
     <div class="grain"></div>
@@ -938,7 +1011,7 @@ body.lock{overflow:hidden}
     <section id="deals">
       <div class="lab rv">05 · العروض</div>
       <h2 class="h rv">كلما اجتمعتم <span class="ol">وفّرتم</span></h2>
-      <p class="dq-lead rv"> خصومات خاصة للعائلات و مجموعات الأصدقاء.</p>
+      <p class="dq-lead rv">خصومات خاصة للعائلات والمجموعات، وتتراكم تلقائياً على كل مجموعة تسجّلونها معاً.</p>
 
       <div class="dq-tiers">
         <div class="dq-t rv" data-p="2"><div class="dq-who">FAMILY</div><div class="dq-n">2</div><div class="dq-u">معتمر</div><div class="dq-people"></div><div class="dq-off"><small>خصم</small><div class="dq-amt">$<span data-n="20">0</span></div><div class="dq-pp">$10 للشخص</div></div></div>
@@ -1037,8 +1110,21 @@ body.lock{overflow:hidden}
       </div>
     </section>
 
+    <section id="faq">
+      <div class="lab rv">07 · الأسئلة</div>
+      <h2 class="h rv">أسئلة <span class="ol">شائعة</span></h2>
+      <div class="fq rv">
+        <div class="fq-i"><button class="fq-q" type="button" aria-expanded="false"><span class="no">01</span><span class="tx">كيف يتم الدفع؟</span><span class="pl"></span></button><div class="fq-a"><div><p>تفاصيل الدفع وآلية تثبيت الحجز بنأكدها معك مباشرة عبر واتساب عند التسجيل.</p></div></div></div>
+        <div class="fq-i"><button class="fq-q" type="button" aria-expanded="false"><span class="no">02</span><span class="tx">ما هي الأوراق المطلوبة؟</span><span class="pl"></span></button><div class="fq-a"><div><p>جواز سفر ساري المفعول. الفيزا بتأمّن بالكامل من طرفنا، وبنزوّدك بقائمة الأوراق الكاملة عند الحجز.</p></div></div></div>
+        <div class="fq-i"><button class="fq-q" type="button" aria-expanded="false"><span class="no">03</span><span class="tx">ما هي شروط الإلغاء؟</span><span class="pl"></span></button><div class="fq-a"><div><p>شروط الإلغاء والاسترداد بتوضّح لك بشكل مكتوب قبل تثبيت الحجز. تواصل معنا وبنشرحها لك بالتفصيل.</p></div></div></div>
+        <div class="fq-i"><button class="fq-q" type="button" aria-expanded="false"><span class="no">04</span><span class="tx">هل الطيران مشمول بالسعر؟</span><span class="pl"></span></button><div class="fq-a"><div><p>السعر بيشمل النقل البري دمشق ⇄ مكة ذهاباً وإياباً. وحجز الطيران متوفر لمن يرغب بدلاً منه، تواصل معنا لمعرفة التفاصيل.</p></div></div></div>
+        <div class="fq-i"><button class="fq-q" type="button" aria-expanded="false"><span class="no">05</span><span class="tx">ما آخر موعد للتسجيل؟</span><span class="pl"></span></button><div class="fq-a"><div><p>آخر موعد للتسجيل 15 تشرين الثاني، والانطلاق يوم 21 تشرين الثاني. المقاعد محدودة، فيفضّل الحجز بكير.</p></div></div></div>
+      </div>
+      <p class="fq-more rv">عندك سؤال تاني؟ <a href="https://wa.me/963967556616" target="_blank" rel="noopener">اسألنا على واتساب</a></p>
+    </section>
+
     <section class="bk" id="book">
-      <div class="lab rv" style="justify-content: center">07 · الحجز</div>
+      <div class="lab rv" style="justify-content: center">08 · الحجز</div>
       <h2 class="h rv">المقاعد <span class="ol">محدودة</span></h2>
       <div class="dl rv">
         <span>آخر موعد للتسجيل: 15 تشرين الثاني</span
@@ -1051,6 +1137,26 @@ body.lock{overflow:hidden}
         <div><b id="h2">0</b><small>ساعة</small></div>
         <div><b id="m2">0</b><small>دقيقة</small></div>
       </div>
+      <form class="qb rv" id="qb" novalidate>
+        <h3>احجز مقعدك بدقيقة</h3>
+        <div class="qs">عبّي البيانات وبنفتح لك واتساب برسالة جاهزة.</div>
+        <label class="lb" for="qbName">الاسم</label>
+        <input type="text" id="qbName" placeholder="الاسم الكامل" autocomplete="name" />
+        <span class="lb">عدد المعتمرين</span>
+        <div class="qn">
+          <button type="button" id="qbMinus" aria-label="أنقص">−</button>
+          <output id="qbN">2</output>
+          <button type="button" id="qbPlus" aria-label="زِد">+</button>
+        </div>
+        <span class="lb">نوع الغرفة</span>
+        <div class="qr" id="qbRooms">
+          <button type="button" data-v="500" data-r="رباعي">رباعي<small>$500</small></button>
+          <button type="button" data-v="550" data-r="ثلاثي">ثلاثي<small>$550</small></button>
+          <button type="button" data-v="600" data-r="ثنائي">ثنائي<small>$600</small></button>
+        </div>
+        <div class="qsum"><span id="qbTxt">—</span><b id="qbTot">$0</b></div>
+        <button class="qgo" type="submit">إرسال عبر واتساب <span aria-hidden="true">💬</span></button>
+      </form>
       <a class="num rv" href="tel:+963967556616"> +963967556616 </a>
       <div class="rv">
         <a class="b" href="https://wa.me/963967556616">واتساب</a>
@@ -1237,6 +1343,8 @@ var IMGS = {
     return {disc:d[n],groups:groups,left:n-groups.reduce(function(a,b){return a+b},0)};
   }
 
+  window.dqBest=best;
+
   /* ===== بطاقات الدرجات: نقاط + توهج + ميلان ثلاثي الأبعاد ===== */
   document.querySelectorAll(".dq-t").forEach(function(c){
     var p=+c.dataset.p,box=c.querySelector(".dq-people");
@@ -1331,5 +1439,87 @@ var IMGS = {
 })();
 </script>
 
+  <script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* شريط التقدم */
+  var bar=document.querySelector("#prog i");
+  function prog(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    bar.style.transform="scaleX("+(h>0?Math.min(1,scrollY/h):0)+")";
+  }
+  addEventListener("scroll",prog,{passive:true});prog();
+
+  /* الأسئلة الشائعة */
+  document.querySelectorAll(".fq-i").forEach(function(it){
+    var q=it.querySelector(".fq-q");
+    q.addEventListener("click",function(){
+      var open=!it.classList.contains("open");
+      document.querySelectorAll(".fq-i.open").forEach(function(o){
+        o.classList.remove("open");o.querySelector(".fq-q").setAttribute("aria-expanded","false");
+      });
+      if(open){it.classList.add("open");q.setAttribute("aria-expanded","true");}
+    });
+  });
+
+  /* نموذج الحجز السريع */
+  var n=2,price=500,room="رباعي";
+  var rooms=$("qbRooms").querySelectorAll("button");
+  function setRoom(btn){
+    rooms.forEach(function(x){x.classList.remove("on")});
+    btn.classList.add("on");price=+btn.dataset.v;room=btn.dataset.r;
+  }
+  function calc(){
+    var r=window.dqBest?window.dqBest(n):{disc:0,groups:[]};
+    return {pre:n*price,disc:r.disc,tot:n*price-r.disc};
+  }
+  function show(){
+    $("qbN").textContent=n;
+    var c=calc();
+    $("qbTxt").textContent=n+" معتمر · غرفة "+room+(c.disc?" · خصم $"+c.disc:"");
+    var from=+($("qbTot").dataset.v||0),to=c.tot,t0=performance.now();
+    $("qbTot").dataset.v=to;
+    if(reduce){$("qbTot").textContent="$"+to.toLocaleString("en-US");return;}
+    (function f(t){var p=Math.min(1,(t-t0)/500),e=1-Math.pow(1-p,3);
+      $("qbTot").textContent="$"+Math.round(from+(to-from)*e).toLocaleString("en-US");
+      if(p<1)requestAnimationFrame(f);})(t0);
+  }
+  rooms.forEach(function(b){b.onclick=function(){setRoom(b);show();};});
+  setRoom(rooms[0]);
+  $("qbPlus").onclick=function(){if(n<30){n++;show();}};
+  $("qbMinus").onclick=function(){if(n>1){n--;show();}};
+  show();
+
+  $("qb").addEventListener("submit",function(e){
+    e.preventDefault();
+    var nm=$("qbName"),name=nm.value.trim();
+    if(!name){nm.classList.remove("bad");void nm.offsetWidth;nm.classList.add("bad");nm.focus();return;}
+    nm.classList.remove("bad");
+    var c=calc();
+    var msg="السلام عليكم، بدي أحجز عمرة مع حملة الإشراق (الانطلاق 21 تشرين الثاني)\n"+
+      "الاسم: "+name+"\n"+
+      "عدد المعتمرين: "+n+"\n"+
+      "نوع الغرفة: "+room+"\n"+
+      (c.disc?"خصم المجموعات: $"+c.disc+"\n":"")+
+      "الإجمالي التقريبي: $"+c.tot;
+    window.open("https://wa.me/963967556616?text="+encodeURIComponent(msg),"_blank","noopener");
+  });
+
+  /* زر الحاسبة "احجز بهذا العرض" يعبّي النموذج وينزل له */
+  var cw=$("dqWa");
+  if(cw){
+    cw.addEventListener("click",function(e){
+      e.preventDefault();
+      n=+$("dqN").textContent||n;
+      var act=document.querySelector("#dqRooms button.on");
+      if(act){rooms.forEach(function(b){if(b.dataset.r===act.dataset.r)setRoom(b);});}
+      show();
+      $("qb").scrollIntoView({behavior:"smooth",block:"center"});
+    });
+  }
+})();
+</script>
   </body>
 </html>
